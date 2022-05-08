@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Atlantis Hotel</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<style>
+  #box {
+    border: 1px solid black;
+    background-color: Cornsilk;
+    padding-top: 300px;
+    padding-right: 300px;
+    padding-bottom: 200px;
+    padding-left: 600px;
+  }
+</style>
+<body>
+
+<!--Navbar (sit on top)-->
+<div class="w3-top">
+  <div class="w3-bar w3-white w3-wide w3-padding w3-card">
+    <img src="./frontend/img/icon.png" class="round" style="margin: 10px;">
+    <a href="#home" class="w3-bar-item w3-button" style="margin: 10px;"><b>Atlantis</b>Hotel</a>
+    <a href="#home" class="w3-bar-item w3-button" style="margin: 10px;">Home</a>
+    <a href="#about" class="w3-bar-item w3-button" style="margin: 10px;">About</a>
+    <a href="#booking" class="w3-bar-item w3-button" style="margin: 10px;">Booking</a>
+    <a href="#contact" class="w3-bar-item w3-button" style="margin: 10px;">Contact</a>
+  </div>
+</div>
+
+<!--home-->
+<header class="w3-display-container w3-content w3-wide" style="max-width:100%;" id="home">
+  <img class="w3-image" src="./frontend/img/h1.jpg" alt="Architecture" style="width:100%;height:600px; opacity: 0.8;">
+  <div class="w3-display-middle w3-margin-top w3-center">
+    <h1 class="w3-xxlarge w3-text-white"><span class="w3-padding w3-opacity-min" style="font-size: 100px; color: black;"><b>Atlantis</b></span> <span class="w3-hide-small" style="color: black;font-size: 80px;font: Times New Roman;">Hotel</span></h1>
+  </div>
+</header>
+<div id="about" style="height: 69px; background-image: url('./frontend/img/sym.png'); background-repeat: repeat-x; background-size: contain"></div>
+<div class="w3-display-container w3-content" style="max-width: 100%;" >
+  <img src="./frontend/img/about.jpg" style="width:100%;height:600px;opacity: 0.8;"  >
+  <div id="box" class="w3-display-middle w3-center">
+    <div class="w3-display-middle w3-center">
+      <h1>Về chúng tôi</h1>
+      <p style="text-align: justify;">Khách sạn Atlantis được thiết kế bao gồm 12 tầng và 100 phòng các loại với nội thất cao cấp và sang trọng. Tất cả các phòng nghỉ của khách sạn đều có cửa sổ lớn nhìn ra không gian bên ngoài với xa xa là khung cảnh non nước hữu tình đầy thơ mộng và cảnh đẹp lung linh của thành phố Nha Trang khi màn đêm buông xuống để mặc những ánh đèn đua nhau thắp lên. Hơn thế nữa, Atlantis còn lựa chọn cách thiết kế độc đáo, thuận tiện với ba loại phòng Standard, Deluxe và Suite có thể làm hài lòng mọi yêu cầu của quý khách.</p>
+    </div>
+  </div>
+</div>
+<div class="w3-content w3-padding" style="max-width:1000px ">
+  <div class="w3-container w3-padding-32" >
+    <h2 class="w3-border-bottom w3-border-light-grey w3-padding-20 w3-center" style="font-size: 30px;">Các loại dịch vụ của Khách sạn</h2>
+    <p class="w3-center w3-padding-30 w3-wide" style="font-size:50px; font: Arial;">Giúp bạn tận hưởng một kỳ nghỉ tuyệt vời</p>
+  </div>
+</div>
+
+<!--dichvu-->
+<div class="w3-row-padding w3-padding-16 w3-center" id="dichvu">
+    <div class="w3-third">
+      <img src="./frontend/img/hoboi.jpg" alt="Sandwich" style="width: 300px;">
+      <h3>Hồ bơi vô cực</h3>
+      <p>Nơi bạn trải nghiệm hồ bơi sang xịn mịn của chúng tôi.</p>
+    </div>
+    <div class="w3-third">
+      <img src="./frontend/img/nhahang.jpg" alt="Steak" style="width:400px">
+      <h3>Nhà hàng sang trọng</h3>
+      <p>Nơi giúp bạn thoả mãn vị giác.</p>
+    </div>
+    <div class="w3-third">
+      <img src="./frontend/img/cheothuyen.jpg" alt="Cherries" style="width:400px">
+      <h3>Chèo thuyền Kayak</h3>
+      <p>Trải nghiệm ngoài trời cùng gia đình.</p>
+    </div>
+  </div>
+  
+  <div class="w3-grey" id="booking">
+    <div class="w3-container w3-content w3-padding-64" style="max-width:1200px">
+      <h2 class="w3-wide w3-center">Các loại phòng của chúng tôi</h2>
+      <div class="w3-row-padding w3-padding-32" style="margin:0 -16px">
+        <div class="w3-third w3-margin-bottom">
+          <img src="./frontend/img/phongstandard.jpg" alt="New York" style="width:100%" class="w3-hover-opacity">
+          <div class="w3-container w3-white">
+            <p class="w3-center"><b>STANDARD</b></p>
+            <p>Phòng phổ thông đầy đủ tiện nghi.</p>
+            <button class="w3-button w3-black w3-margin-bottom w3-block w3-section" onclick="ticketMode('STANDARD')">Đặt phòng</button>
+          </div>
+        </div>
+        <div class="w3-third w3-margin-bottom">
+          <img src="./frontend/img/phongdeluxe.jpg" alt="Paris" style="width:100%" class="w3-hover-opacity">
+          <div class="w3-container w3-white">
+            <p class="w3-center"><b>DELUXE</b></p>
+            <p>Phòng 2 giường ngủ diện tích rộng rãi.</p>
+            <button class="w3-button w3-black w3-margin-bottom w3-block w3-section" onclick="ticketMode('DELUXE')">Đặt phòng</button>
+          </div>
+        </div>
+        <div class="w3-third w3-margin-bottom">
+          <img src="./frontend/img/phongsite.jpg" alt="San Francisco" style="width:100%" class="w3-hover-opacity">
+          <div class="w3-container w3-white">
+            <p class="w3-center"><b>SUITE</b></p>
+            <p>Phòng cao cấp với nhiều tiện ích hiện đại.</p>
+            <button class="w3-button w3-black w3-margin-bottom w3-block w3-section" onclick="ticketMode('SUITE')">Đặt phòng</button>
+          </div>
+        </div>
+        <script>
+          function ticketMode(room) {
+            document.getElementById('ticketModal').style.display='block';
+            document.getElementById('room-menu').value=room;
+            checkRoom(room);
+          }
+        </script>
+      </div>
+    </div>
+  </div>
+
+ <!-- Booking -->
+  <div id="ticketModal" class="w3-modal">
+    <div class="w3-modal-content w3-animate-top w3-card-4">
+      <header class="w3-container w3-teal w3-center w3-padding-32"> 
+        <span onclick="document.getElementById('ticketModal').style.display='none'" 
+          class="w3-button w3-red w3-xlarge w3-display-topright">×</span>
+        <h2 class="w3-wide"><i class="fa fa-suitcase w3-margin-right"></i>Booking</h2>
+      </header>
+      <div class="w3-container">
+        <form id="booking-form">
+          <input class="w3-input w3-padding-16 w3-margin-top" type="text" placeholder="Họ và tên" required name="name">
+          <input class="w3-input w3-padding-16" type="datetime-local" placeholder="Ngày đặt phòng" required name="booking_date"></p>
+          <p>
+            <label style="float:left"><i class="fa fa-user"></i>Loại phòng:</label>
+            <select id="room-menu" style="float:left; margin-left: 1em;" name="room" onchange="checkRoom(this.value)">
+              <option value="STANDARD" selected>STANDARD</option>
+              <option value="DELUXE">DELUXE</option>
+              <option value="SUITE">SUITE</option>
+            </select>
+            <div id="status-room" style="float:left; margin-left: 1em;"></div>
+          </p>
+          <script>
+            function checkRoom(room) {
+              axios.get("/api/web/checkRoom", {
+                params: {
+                  room_type: room
+                }
+              })
+              .then((res) => {
+                console.log(res);
+                const counter = res.data[0].counter;
+                document.getElementById('status-room').innerHTML = 'Còn ' + counter + ' phòng ' + room;
+                if (counter <= 0) {
+                  document.getElementById('status-room').style.color = "red";
+                  document.getElementById("btn-booking").disabled = true;
+                }
+                else {
+                  document.getElementById('status-room').style.color = "green";
+                  document.getElementById("btn-booking").disabled = false;
+                }
+              })
+              .catch((err) => {
+                console.log(err);
+              });
+            }
+          </script>
+          <input class="w3-input w3-padding-16" type="text" placeholder="Số điện thoại" name="phone">
+          <input class="w3-input w3-padding-16" type="email" placeholder="Email" name="email">
+          <button id="btn-booking" class="w3-button w3-block w3-teal w3-padding-16 w3-section" type="submit">Đặt phòng<i class="fa fa-check"></i></button>      
+        </form>
+        <script type="text/javascript">
+          const booking_form = document.getElementById('booking-form');
+          booking_form.addEventListener("submit", (event) => {
+            event.preventDefault();
+            const formData = new FormData(booking_form);
+            const formJSON = Object.fromEntries(formData.entries());
+            if (!(formJSON.phone == "" && formJSON.email == "")) {
+              axios.post("/api/web/booking", formJSON, {
+                headers: {
+                  "Content-Type": "application/json",
+                },
+              })
+              .then((res) => {
+                console.log(res);
+              })
+              .catch((err) => {
+                console.log(err);
+              });
+            }
+            else {
+              alert("Không được bỏ trống cả phone và email.");
+            }
+          });
+        </script>
+      </div>
+    </div>
+  </div>
+  <!--Contact-->
+  <div class="w3-container w3-padding-64" id="contact">
+    <h1 style="text-align: center;">Liên hệ</h1>
+    <p class="w3-text-blue-grey w3-large w3-center"><b>2 Nguyễn Thị Minh Khai, Lộc Thọ, Nha Trang, Việt Nam.</b>
+      <br>Phone: 0123456789 - Email: contact@atlantis.com</p>
+    <p>Nếu có bất cứ yêu cầu gì, đừng ngần ngại liên hệ với chúng tôi thông qua phương thức liên lạc ở trên hoặc bạn có thể để lại phản hồi tại đây:</p>
+    <form id="feedback-form">
+      <input class="w3-input w3-padding-16" type="text" placeholder="Tên" required name="name">
+      <input class="w3-input w3-padding-16" type="number" min="101" max="304" placeholder="Phòng ở" required name="room">
+      <input class="w3-input w3-padding-16" type="text" placeholder="Phản hồi" required name="feedback">
+      <button class="w3-button w3-block w3-black w3-section" type="submit">GỬI PHẢN HỒI</button>
+    </form>
+    <script>
+      const feebback_form = document.getElementById("feedback-form");
+      feebback_form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const formData = new FormData(feebback_form);
+        const formJSON = JSON.stringify(Object.fromEntries(formData.entries()));
+        axios.post("/api/web/feedback", formJSON, {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        })
+        .then((res) => {
+          console.log(res);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+      });
+    </script>
+</body>

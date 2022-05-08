@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script>
+    function reloadRoom() {
+      axios.get("http://localhost:3000/api/app/chooseRoom")
+      .then((res) => {
+        console.log(res)
+        for (let i = 0; i < res.data.length; i++) {
+          if (res.data[i].status == "FREE") {
+            document.getElementById(res.data[i].id).style.backgroundColor = "#3c9bb4";
+            document.getElementById(res.data[i].id).disable = false;
+          } else {
+            document.getElementById(res.data[i].id).style.backgroundColor = "red";
+            document.getElementById(res.data[i].id).disable = true;
+          }
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    }
+    setTimeout(reloadRoom, 60000);
+  </script>
+  <title>Atlantis Hotel</title>
+</head>
+
+<body>
+  <header>
+    <div style="font-size: 10vh; text-align: center;"><b>Atlantis</b> Hotel</div>
+    <form id="search-bar">
+      <select name="filter" id="filter">
+        <optgroup label="Filter">
+          <option value="phone">Phone</option>
+          <option value="email">Email</option>
+        </optgroup>
+      </select>
+      <input type="text" placeholder="Nhập để tìm kiếm..." name="search">
+      <button style="border-radius:0" type="submit">Tìm</button>
+      <button type="button" onclick="newCustomer()">Mới</button>
+    </form>
+    <script>
+      const search_bar = document.getElementById('search-bar');
+      search_bar.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const barData = new FormData(search_bar);
+        const barJSON = Object.fromEntries(barData.entries());
+        if (!(barJSON.search == "")) {
+          axios.get("http://localhost:3000/api/app/searchCustomer", {
+            params: {
+              filter: barJSON.filter,
+              search: barJSON.search
+            }
+          })
+          .then((res) => {
+            console.log(res)
+            document.getElementById('room-name').value = res.data[0].name;
+            document.getElementById('room-phone').value = res.data[0].phone;
+            document.getElementById('room-email').value = res.data[0].email;
+            document.getElementById('room-room').value = sessionStorage.getItem("room");
+            document.getElementById('room-booking-date').value = res.data[0].booking_day;
+            document.getElementById('room-checkin').value = res.data[0].checkin_date;
+            document.getElementById('room-checkout').value = res.data[0].checkout_date;
+            document.getElementById('more').style.display = 'block';
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+        }
+      });
+      function newCustomer() {
+        document.getElementById('room-name').value = "";
+        document.getElementById('room-phone').value = "";
+        document.getElementById('room-email').value = "";
+        document.getElementById('room-room').value = sessionStorage.getItem("room");
+        document.getElementById('room-booking-date').value = "";
+        document.getElementById('room-checkin').value = "";
+        document.getElementById('room-checkout').value = "";
+        document.getElementById('more').style.display = 'block';
+      }
+    </script>
+  </header>
+  <main>
+    <div class="row">
+        <div class="column" >
+          <div class="card">
+            <h2>Phòng 101</h2>
+            <button class="button3" id="101" onclick="chooseRoom(this.id)">Chọn</button>
+          </div>
+        </div>
+        <div class="column">
+          <div class="card">
+            <h2>Phòng 102</h2>
+            <button class="button3" id="102" onclick="chooseRoom(this.id)">Chọn</button>
+          </div>
+        </div>
+        <div class="column" >
+          <div class="card">
+            <h2>Phòng 103</h2>
+            <button class="button3" id="103" onclick="chooseRoom(this.id)">Chọn</button>
+          </div>
+        </div>
+        <div class="column" >
+          <div class="card">
+            <h2>Phòng 104</h2>
+            <button class="button3" id="104" onclick="chooseRoom(this.id)">Chọn</button>
+          </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="column" >
+          <div class="card">
+            <h2>Phòng 201</h2>
+            <button class="button3" id="201" onclick="chooseRoom(this.id)">Chọn</button>
+          </div>
+        </div>
+        <div class="column">
+          <div class="card">
+            <h2>Phòng 202</h2>
+            <button class="button3" id="202" onclick="chooseRoom(this.id)">Chọn</button>
+          </div>
+        </div>
+        <div class="column" >
+          <div class="card">
+            <h2>Phòng 203</h2>
+            <button class="button3" id="203" onclick="chooseRoom(this.id)">Chọn</button>
+          </div>
+        </div>
+        <div class="column" >
+          <div class="card">
+            <h2>Phòng 204</h2>
+            <button class="button3" id="204" onclick="chooseRoom(this.id)">Chọn</button>
+          </div>
+        </div>
+    </div>
+
+    <div class="row">
+      <div class="column" >
+        <div class="card">
+          <h2>Phòng 301</h2>
+          <button class="button3" id="301" onclick="chooseRoom(this.id)">Chọn</button>
+        </div>
+      </div>
+      <div class="column">
+        <div class="card">
+          <h2>Phòng 302</h2>
+          <button class="button3" id="302" onclick="chooseRoom(this.id)">Chọn</button>
+        </div>
+      </div>
+      <div class="column" >
+        <div class="card">
+          <h2>Phòng 303</h2>
+          <button class="button3" id="303" onclick="chooseRoom(this.id)">Chọn</button>
+        </div>
+      </div>
+      <div class="column" >
+        <div class="card">
+          <h2>Phòng 304</h2>
+          <button class="button3" id="304" onclick="chooseRoom(this.id)">Chọn</button>
+        </div>
+      </div>
+    </div>
+    <script>
+      function chooseRoom(room) {
+        reloadRoom()
+        if (document.getElementById(room).disable == false) {
+          sessionStorage.setItem("room", room);
+          alert("Đã chọn phòng " + room + ". Hãy tiếp tục tìm kiếm hoặc tạo mới khách hàng...");
+        } else {
+          axios.get("http://localhost:3000/api/app/searchCustomer", {
+            params: {
+              filter: "room",
+              search: room
+            }
+          })
+          .then((res) => {
+            data = res.data
+            document.getElementById('room-name').value = data[0].name;
+            document.getElementById('room-phone').value = data[0].phone;
+            document.getElementById('room-email').value = data[0].email;
+            document.getElementById('room-room').value = room;
+            document.getElementById('room-booking-date').value = data[0].booking_day;
+            document.getElementById('room-checkin').value = data[0].checkin_date;
+            document.getElementById('room-checkout').value = data[0].checkout_date;
+            document.getElementById('more').style.display = 'block';
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+        }
+      }
+    </script>
+  </main>
+  <div id="more" class="modal">
+    <div class="modal-content animate">
+      <span onclick="document.getElementById('more').style.display='none'" class="close" title="Close Modal">&times;</span>
+      <div class="info">
+        <h2 style="background-color:#3c9bb4; color:white; margin: 0; padding: 5vh">THÔNG TIN</h2> 
+        <br>
+        <form id="room-info">
+          <label for="room-name">Họ và tên:</label>
+          <input type="text" id="room-name" name="room-name"><br>
+          <label for="room-phone">Số điện thoại:</label>
+          <input type="text" id="room-phone" name="room-phone"><br>
+          <label for="room-email">Địa chỉ email:</label>
+          <input type="email" id="room-email" name="room-email"><br>
+          <label for="room-room">Phòng:</label>
+          <input type="text" id="room-room" name="room-room"><br>
+          <label for="room-booking-date">Ngày đặt phòng:</label>
+          <input type="datetime" id="room-booking-date" name="room-booking-date"><br>
+          <label for="room-checkin">Ngày nhận phòng:</label>
+          <input type="datetime" id="room-checkin" name="room-checkin"><br>
+          <label for="room-checkout">Ngày trả phòng:</label>
+          <input type="datetime" id="room-checkout" name="room-checkout"><br>
+          <br>
+          <button type="button" onclick="checkIO('in')">ĐẶT PHÒNG</button>
+          <button type="button" onclick="checkIO('out')">TRẢ PHÒNG</button>
+        </form>
+        <script>
+          function checkIO(check_mode) {
+            let check_content
+            if (!(document.getElementById('room-phone').value == "")) {
+              check_content = document.getElementById('room-phone').value
+              check_type = "phone"
+            } else if (!(document.getElementById('room-email').value == "")) {
+              check_content = document.getElementById('room-email').value
+              check_type = "email"
+            }
+            if (!(check_content == "")) {
+              axios.get("http://localhost:3000/api/app/checkIO", {
+                params: {
+                  mode: check_mode,
+                  check: check_content,
+                  type: check_type,
+                  room: document.getElementById('room-room').value
+                }
+              })
+              .then((res) => {
+                console.log(res);
+              })
+              .catch((err) => {
+                console.log(err);
+              });
+            }
+          }
+        </script>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

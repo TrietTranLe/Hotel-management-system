@@ -1,0 +1,219 @@
+body{
+  background-image: url('background.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+  font-family: Arial, Helvetica, sans-serif;
+}
+* {
+  box-sizing: border-box;
+}
+
+/* Create four equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 25%;
+  padding:0 20px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  margin: 40px;
+  clear: both;
+}
+.row {
+  margin: 0 -5px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/* Responsive columns */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+}
+
+/* Style the counter cards */
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  text-align: center;
+  background-color: #f1f1f1;
+  border-radius: 2%;
+}
+
+button:hover {
+  color: black;
+  background-color: #ccc;
+}
+
+form#search-bar {
+  padding: 2vh;
+}
+
+form#search-bar select{
+  float: left;
+  width: 10%;
+  padding: 10px;
+  background: #f1f1f1;
+  color: black;
+  font-size: 17px;
+  text-align: center;
+  border: 1px solid grey;
+  border-right: none;
+  cursor: pointer;
+  border-top-left-radius: 1.25rem;
+  border-bottom-left-radius: 1.25rem;
+}
+
+form#search-bar input[type=text] {
+  padding: 10px;
+  font-size: 17px;
+  border: 1px solid grey;
+  float: left;
+  width: 70%;
+  background: #f1f1f1;
+}
+
+form#search-bar::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+form#search-bar button {
+  float: left;
+  width: 10%;
+  padding: 10px;
+  background: #3c9bb4;
+  color: white;
+  font-size: 17px;
+  border: 1px solid grey;
+  border-left: none;
+  cursor: pointer;
+  border-top-right-radius: 1.25rem;
+  border-bottom-right-radius: 1.25rem;
+}
+
+form#search-bar button:hover {
+  color: black;
+  background-color: #ccc;
+}
+
+.box{
+  width: 300px;
+  border: 15px solid green;
+  padding: 50px;
+  margin: 20px;
+  display: center;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: #130505; /* Fallback color */
+  background-color: rgba(11, 9, 20, 0.4); /* Black w/ opacity */
+  padding-top: 50px;
+  
+}
+
+.modal-content {
+  background-color: #deeed5;
+  height: 80%;
+  width: 70%;
+  margin: 5% auto 15% auto;
+  text-align: center;
+}
+
+/* The Close Button (x) */
+.close {
+  position: absolute;
+  right: 25px;
+  top: 0;
+  color: rgb(250, 12, 12);
+  font-size: 50px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: rgb(28, 181, 219);
+  cursor: pointer;
+}
+.container {
+  padding: 20px;
+}
+
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+
+
+.button3{
+  background-color: #3c9bb4;
+  border: none;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  width: 100%
+}
+
+td{
+  font-size: 100px;
+}
+
+form#room-info {
+  font-size: 16px;
+}
+
+form#room-info label {
+  float:left; 
+  text-align: left;
+  width: 19%;
+  margin-left: 1%;
+  margin-top: 1em;
+}
+
+form#room-info input {
+  width: 79%;
+  margin-right: 1%;
+  margin-top: 1em;
+}
+
+form#room-info button {
+  border: none;
+  border-radius: 0;
+  float:none;
+  font-weight: bold;
+  color: white;
+  width: 47%;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin: 1%;
+  background-color: #3c9bb4;
+}
+
+form#room-info button:hover {
+  color: black;
+  background-color: #ccc;
+}
